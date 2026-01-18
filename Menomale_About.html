@@ -1,0 +1,489 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Menomale Design</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="MenoMale-Tondo-Logo.svg" type="image/png">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        @font-face {
+            font-family: "Outfit_Regular";
+            src: url(Fonts/Outfit-Variable.ttf);
+            font-family: "Comico";
+            src:url(Fonts/Comico-Regular.ttf)
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: Outfit_Regular, sans-serif;
+            background-color:#1A2A40;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1; /* occuperà tutto lo spazio disponibile */
+        }
+
+    /* NAVBAR */
+        .navbar {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px;
+            background-color: #FFACC1 ;
+            padding-bottom: 25px ;
+        
+        }
+
+        .logo img {
+            height: 100px;
+            display: block;
+        }
+
+        .nav-links {
+            margin-left: auto;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #FF416E;
+            font-weight: 670;
+            font-size: 1.3rem;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: #E8E64A;
+        }
+
+        .nav-links_shadows {text-shadow: 0px 10px #1a2a4070, 0px 20px #1a2a4073, 0px 30px #1a2a409a;}
+
+        /* elemento di break (invisibile) */
+        .break {
+            display: none;
+        }
+
+        /* TABLET */
+        @media (max-width: 1024px) {
+            .logo img {
+                height: 80px;
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .logo img {
+                height: 70px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                max-width: 280px;
+                row-gap: 10px;
+            }
+
+            .break {
+                display: block;
+                flex-basis: 100%; /* forza il capo ESATTAMENTE qui */
+                height: 0;
+            }
+
+            .nav-links a {
+                text-align: right;
+                font-size: 0.95rem;
+            }
+
+            
+        }
+
+    /*SCRITTA SOTTO NAVBAR*/
+
+        .navbar-wrapper {
+        pointer-events: none;
+        width: 100%;
+        overflow: hidden;
+        background-color: #E8E64A;
+        }
+
+        .navbar-track {
+        display: flex;
+        width: max-content;
+        animation: scroll-navbar 20s linear infinite;
+        }
+
+        .text-navbar {
+        display: block;
+        font-size: 18px;
+        font-weight: 400;
+        font-family: "Comico";
+        color: #FF416E;
+        white-space: nowrap;
+        margin-right: 1vw;
+        }
+        
+
+        @media (max-width: 1024px) {
+        .text-navbar {
+            font-size: 13px;
+        }
+        }
+
+        
+
+        @keyframes scroll-navbar {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
+        }
+
+
+
+    /*ABOUT LAYOUT*/
+
+        .about-wrapper {
+            display: flex;
+            min-height: 60vh;
+            margin: 3vw;
+            gap: 3%;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 20px;
+        }
+
+        .about-text {
+            margin-top: 2vw;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            margin-right: 2vw;
+        }
+
+        /* Testo in due colonne */
+        .two-columns {
+            column-count: 2;
+            column-gap: 30px;
+            padding-top: 10px;
+            font-weight: 400;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+            .about-wrapper {
+                flex-direction: column;
+            }
+
+            .about-image {
+                width: 100%;
+                height: 60vh;
+            }
+
+            .two-columns {
+                column-count: 1;
+            }
+        }
+
+    /* FOOTER */
+
+        footer {
+            background-color: #FFACC1;
+            color: #FF416E;
+            padding: 20px 5vw; /* padding laterale in % viewport per adattarsi */
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            column-gap: 2vw; /* spazio tra le colonne */
+            max-width: 100%;
+            overflow: hidden; /* impedisce overflow */
+        }
+
+        .footer-logo {
+            cursor: pointer;
+            justify-self: center;
+        }
+
+        .footer-logo img {
+            width: clamp(60px, 8vw, 90px);
+            display: block;
+        }
+
+        .footer-left,
+        .footer-right {
+            display: flex;
+            gap: 2vw; /* gap dinamico invece di fisso */
+            flex: 1;
+        }
+
+        .footer-right {
+            justify-content: flex-end;
+            padding-left: 0; /* rimosso padding fisso, ora gap gestisce spazio */
+        }
+
+        .footer-left {
+            justify-content: flex-start;
+            padding-right: 0; /* idem */
+        }
+
+        .footer-section h4 {
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: clamp(14px, 1.4vw, 16px);
+        }
+
+        .footer-section p {
+            margin: 0;
+            line-height: 1.4;
+            font-size: clamp(12px, 1.2vw, 14px);
+        }
+
+        /* Optional: ridurre gap su schermi molto stretti */
+        @media (max-width: 480px) {
+            .footer-left,
+            .footer-right {
+                gap: 1vw;
+            }
+        }
+
+        /*RIDUZIONE TESTO FOOTER*/
+        @media (max-width: 768px) {
+            .footer-section h4 {
+                font-size: clamp(12px, 2vw, 14px); /* titoli più piccoli */
+            }
+
+            .footer-section p {
+                font-size: clamp(10px, 1.5vw, 12px); /* paragrafi più piccoli */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-section h4 {
+                font-size: clamp(10px, 2.5vw, 12px);
+            }
+
+            .footer-section p {
+                font-size: clamp(8px, 2vw, 10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="IMG/LOGO/LOGO menomale design Rosa intenso+blu.png" alt="Logo">
+        </a>
+
+        <div class="nav-links">
+            <a style="color:#E8E64A;" href="Menomale_About.html">About</a>
+            <a href="Menomale_Works.html">Works</a>
+
+            <span class="break"></span>
+
+            <a href="Menomale_Exhibitions.html">Exhibitions</a>
+            <a href="Menomale_Contacts.html">Contacts</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <div class="navbar-wrapper">
+            <div class="navbar-track">
+                <!-- duplicazione necessaria per continuità -->
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+                <span class="text-navbar">ABOUT</span>
+            </div>
+        </div>
+
+        
+
+        <!-- Paragrafo Centrale Home Page -->
+
+        <div class="about-wrapper">
+
+            <div class="about-image">
+                <img src="IMG/FOTO-PROFILO/BW-team.jpeg" alt="Team photo">
+            </div>
+
+            <div class="about-text" style="color:#FFACC1">
+                <h2 class="size-titolo1" style="font-weight: 800;">Menomale team</h2>
+                <h4 class="two-columns">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae nisl quis sapien mattis porttitor non id ligula. Donec vitae ex nulla. Praesent dignissim in arcu rhoncus tincidunt. Vivamus et vestibulum odio, vitae viverra odio. Nam quis finibus eros. Fusce scelerisque tincidunt mauris, a varius massa dapibus sit amet. Sed lobortis rutrum convallis. Duis quis rhoncus nisl. Sed tristique rhoncus nisi, tempus varius augue elementum eget. Maecenas at tempus odio. Sed iaculis, tortor quis pellentesque lobortis, diam augue tempus leo, vel aliquet orci odio eget neque. Sed tincidunt libero eros, eu vestibulum massa gravida quis. Mauris sit amet tempor purus, at condimentum risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+
+Donec id consectetur sem. Quisque ac faucibus libero. Phasellus tortor nisl, scelerisque pellentesque enim vel, pharetra consectetur lectus. Aliquam dignissim pellentesque ipsum, vel maximus lectus scelerisque sit amet. Vivamus sed nunc et justo pellentesque congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed porttitor diam vel aliquam tempus. Sed tincidunt euismod neque in tincidunt. Phasellus ex nulla, bibendum sed posuere eu, ultricies quis augue. Fusce venenatis gravida aliquam.
+
+Quisque lectus elit, consequat vel ornare in, luctus a nunc. Mauris sed augue condimentum mi pretium molestie in at mauris. Integer volutpat pulvinar odio et fringilla. Nunc a pretium sapien. Duis fringilla et augue et feugiat. Curabitur a aliquam turpis. Nullam eu mauris porta, elementum purus sollicitudin, rhoncus odio. Nunc bibendum felis ut dui varius, sit amet facilisis justo venenatis. Mauris ultricies auctor ex a faucibus. Curabitur in interdum neque, non tincidunt mi. Nulla finibus luctus pharetra.
+
+Aenean tincidunt sem a malesuada tincidunt. Pellentesque porta, magna vitae volutpat elementum, mauris enim porta enim, eu tincidunt turpis nibh ut est. Curabitur tempus ullamcorper massa eu ornare. Nam nec nunc eget mi porta hendrerit. Integer risus nunc, dictum in pellentesque at, commodo id sapien. Morbi posuere eros metus, ut hendrerit est lobortis id. Fusce consectetur porta placerat. Etiam iaculis fermentum purus. In varius velit eu leo mollis varius. Integer lorem nibh, convallis ut venenatis sed, viverra sit amet ex. Cras aliquam nibh eget est volutpat consequat.
+
+In fringilla mi porttitor ultricies bibendum. Phasellus varius non orci vitae pulvinar. Nullam lorem justo, feugiat sed elit sit amet, aliquam mollis lorem. In hac habitasse platea dictumst. Quisque vehicula libero at nunc aliquet mattis. Sed ut commodo diam. Quisque pretium pellentesque nunc tincidunt euismod. Quisque sollicitudin ac elit et consequat. Curabitur pulvinar libero ut nisl iaculis tincidunt. Curabitur id nibh vitae nisi porta facilisis vel ut nulla. Morbi a iaculis dolor. Maecenas et pellentesque diam. Fusce condimentum ullamcorper metus, id condimentum nisl scelerisque a.
+                </h4>
+            </div>
+
+        </div>
+
+        
+    </main>
+
+    
+
+    <footer id="bottom">
+        <div class="footer-container">
+
+            <div class="footer-left">
+                <div class="footer-section">
+                    <h4>Titolo 1</h4>
+                    <p>Testo del primo paragrafo.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Titolo 2</h4>
+                    <p>Testo del secondo paragrafo.</p>
+                </div>
+            </div>
+
+            <a href="#top" class="footer-logo">
+                <img src="IMG/LOGO/Bandiera_Magenta_3.svg" alt="Logo MenoMale">
+            </a>
+
+            <div class="footer-right">
+                <div class="footer-section">
+                    <h4>Titolo 3</h4>
+                    <p>Testo del terzo paragrafo.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Titolo 4</h4>
+                    <p>Testo del quarto paragrafo.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+    const track = document.getElementById("track");
+    const slides = document.querySelectorAll(".slide");
+    const viewport = document.querySelector(".viewport");
+
+    let index = 0;
+
+    function updatePosition() {
+        let offset = 0;
+
+        if (index === slides.length - 1) {
+        // Ultima immagine: allinea il bordo destro
+        offset = track.scrollWidth - viewport.clientWidth;
+        } else {
+        // Tutte le altre
+        for (let i = 0; i < index; i++) {
+            offset += slides[i].offsetWidth;
+        }
+        }
+
+        track.style.transform = `translateX(-${offset}px)`;
+    }
+
+    function next() {
+        index++;
+        if (index >= slides.length) {
+        index = 0;
+        }
+        updatePosition();
+    }
+
+    function prev() {
+        index--;
+        if (index < 0) {
+        index = slides.length - 1;
+        }
+        updatePosition();
+    }
+    </script>
+
+</body>
+</html>
