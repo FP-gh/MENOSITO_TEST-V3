@@ -17,6 +17,8 @@
         @font-face {
             font-family: "Outfit_Regular";
             src: url(Fonts/Outfit-Variable.ttf);
+            font-family: "Comico";
+            src:url(Fonts/Comico-Regular.ttf)
         }
 
         html, body {
@@ -26,7 +28,7 @@
         body {
             margin: 0;
             font-family: Outfit_Regular, sans-serif;
-            background-color: #e8e64a;
+            background-color: #1A2A40;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -41,7 +43,8 @@
             display: flex;
             align-items: flex-start;
             padding: 20px;
-            background-color: #e8e64a;
+            background-color: #FFACC1 ;
+            padding-bottom: 25px ;
         
         }
 
@@ -66,7 +69,7 @@
         }
 
         .nav-links a:hover {
-            color: #1A2A40;
+            color: #E8E64A;
         }
 
         .nav-links_shadows {text-shadow: 0px 10px #1a2a4070, 0px 20px #1a2a4073, 0px 30px #1a2a409a;}
@@ -114,13 +117,56 @@
             
         }
 
+    /*SCRITTA SEZIONE*/
 
-        /*BOX IMAGE SLIDER */
+        .wrapper {
+        pointer-events: none;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        transform: translateY(-10vw)
+        }
+
+        .sezione-track {
+        display: inline-block;
+        white-space: nowrap;
+        will-change: transform;
+        animation: scroll-sezione 50s linear infinite;
+        }
+
+        .text-sezione {
+        font-size: 30vw;
+        font-weight: 550;
+        color: #FF416E;
+        font-family: "Comico";
+        }
+
+        @media (max-width: 1024px) {
+        .wrapper {
+            transform: translateY(-8.5vw);
+        }
+        }
+
+        
+
+        @keyframes scroll-sezione {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
+        }
+
+
+    /*BOX IMAGE SLIDER */
 
         /* Spazio rispetto alla pagina */
         .carousel-wrapper {
+            transform: translateY(-20vw);
             padding: 24px;
-            margin-top: 40px; /* sposta verso il basso l’intero slider */
+            /* sposta verso il basso l’intero slider */
         }
 
         /* Contenitore principale */
@@ -136,6 +182,7 @@
             position: absolute;
             inset: 0;
             overflow: hidden;
+            border: #1A2A40 solid  1px;
             border-radius: 60px; /* deve combaciare con la cornice SVG */
             z-index: 1;
         }
@@ -290,22 +337,31 @@
 
         /*PARAGRAFO CENTRALE*/
 
-        .padding-par-centr {padding: 0;}
+        .padding-par-centr {padding: 0; transform: translateY(-20vw); margin-left: 5vw; margin-right: 5vw; margin-top: 0.7%;}
         .size-titolo1{font-size: xx-large;}
+
+        .two-columns {
+            column-count: 2;
+            column-gap: 4vw;
+            padding-top: 10px;
+            font-weight: 400;
+        }
 
         /* Mobile */
         @media (max-width: 480px) {
             .padding-par-centr{padding-left: 10px;padding-right: 10px;
             }
              .size-titolo1{font-size: x-large;}
+
+            .two-columns {column-count: 1;}
         }
 
         /* FOOTER */
 
         footer {
-            background-color: transparent;
+            background-color: #FFACC1;
             color: #FF416E;
-            padding: 40px 5vw; /* padding laterale in % viewport per adattarsi */
+            padding: 20px 5vw; /* padding laterale in % viewport per adattarsi */
         }
 
         .footer-container {
@@ -391,7 +447,7 @@
 
     <nav class="navbar">
         <a href="index.html" class="logo">
-            <img src="LOGO menomale design Rosa intenso+blu.png" alt="Logo">
+            <img src="IMG/LOGO/LOGO menomale design Rosa intenso+blu.png" alt="Logo">
         </a>
 
         <div class="nav-links">
@@ -406,6 +462,29 @@
     </nav>
 
     <main>
+
+        <div class="wrapper">
+            <div class="sezione-track">
+            <!-- duplicazione necessaria per continuità -->
+            <span class="text-sezione">MENOMALE</span>
+            <span class="text-sezione">MENOMALE</span>
+            <span class="text-sezione">MENOMALE</span>
+            <span class="text-sezione">MENOMALE</span>
+            <span class="text-sezione">MENOMALE</span>
+            <span class="text-sezione">MENOMALE</span>
+            <span class="text-sezione">MENOMALE</span>
+            <span class="text-sezione">MENOMALE</span>
+
+            <span class="text-sezione">MENOMALE</span>
+            <span class="text-sezione">MENOMALE</span>
+            <span class="text-sezione">MENOMALE</span>
+            <span class="text-sezione">MENOMALE</span>
+            <span class="text-sezione">MENOMALE</span>
+            <span class="text-sezione">MENOMALE</span>
+            <span class="text-sezione">MENOMALE</span>
+            <span class="text-sezione">MENOMALE</span>
+            </div>
+        </div>
 
         <div class="carousel-wrapper">
             <div class="carousel">
@@ -429,6 +508,7 @@
                             <span>LATEST WORKS</span>
                             <span>LATEST WORKS</span>
                         </div>
+
                         <div class="marquee-group">
                             <span>LATEST WORKS</span>
                             <span>LATEST WORKS</span>
@@ -454,7 +534,7 @@
                 
                     <div class="track" id="track">
                         <div class="slide">
-                            <img src="https://images.wallpaperscraft.com/image/single/penguin_bird_stones_115034_1600x900.jpg">
+                            <img src="EXHIBITIONS/NOC-IT/NOC-IT_FOTO/noc-it-foto-16a9.jpg">
                         </div>
                         <div class="slide">
                             <img src="https://platform.vox.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/15231691/453801468.0.0.1421786380.jpg?quality=90&strip=all&crop=16.73,0,66.54,100">
@@ -470,7 +550,7 @@
 
                 <!-- Cornice SVG -->
                 <img
-                src="Cornice-con-frecce-3.svg"
+                src="Cornice_blu_freccie-gialle.svg"
                 class="frame-svg"
                 alt=""
                 aria-hidden="true"
@@ -485,10 +565,20 @@
 
         <!-- Paragrafo Centrale Home Page -->
 
-        <div class="padding-par-centr" style="margin: 1.9%; color:#FF416E">
-            <h2 class="size-titolo1" style="font-weight: 700;">Titolo 1</h2>
-            <h4 style="margin: 2px; padding-top: 10px; font-weight: 400;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus itaque velit aperiam officiis inventore. Voluptas eos libero similique dignissimos repellat magnam quo reprehenderit voluptatem. Vel molestiae nesciunt consequatur possimus aliquam.</h4>
+        <div class="padding-par-centr" style=" color:#FFACC1">
+            <h2 class="size-titolo1" style="font-weight: 800;">Titolo 1</h2>
+            <h4 class="two-columns" style="margin: 2px; padding-top: 10px; font-weight: 400;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae nisl quis sapien mattis porttitor non id ligula. Donec vitae ex nulla. Praesent dignissim in arcu rhoncus tincidunt. Vivamus et vestibulum odio, vitae viverra odio. Nam quis finibus eros. Fusce scelerisque tincidunt mauris, a varius massa dapibus sit amet. Sed lobortis rutrum convallis. Duis quis rhoncus nisl. Sed tristique rhoncus nisi, tempus varius augue elementum eget. Maecenas at tempus odio. Sed iaculis, tortor quis pellentesque lobortis, diam augue tempus leo, vel aliquet orci odio eget neque. Sed tincidunt libero eros, eu vestibulum massa gravida quis. Mauris sit amet tempor purus, at condimentum risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+
+                Donec id consectetur sem. Quisque ac faucibus libero. Phasellus tortor nisl, scelerisque pellentesque enim vel, pharetra consectetur lectus. Aliquam dignissim pellentesque ipsum, vel maximus lectus scelerisque sit amet. Vivamus sed nunc et justo pellentesque congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed porttitor diam vel aliquam tempus. Sed tincidunt euismod neque in tincidunt. Phasellus ex nulla, bibendum sed posuere eu, ultricies quis augue. Fusce venenatis gravida aliquam.
+
+                Quisque lectus elit, consequat vel ornare in, luctus a nunc. Mauris sed augue condimentum mi pretium molestie in at mauris. Integer volutpat pulvinar odio et fringilla. Nunc a pretium sapien. Duis fringilla et augue et feugiat. Curabitur a aliquam turpis. Nullam eu mauris porta, elementum purus sollicitudin, rhoncus odio. Nunc bibendum felis ut dui varius, sit amet facilisis justo venenatis. Mauris ultricies auctor ex a faucibus. Curabitur in interdum neque, non tincidunt mi. Nulla finibus luctus pharetra.
+
+                Aenean tincidunt sem a malesuada tincidunt. Pellentesque porta, magna vitae volutpat elementum, mauris enim porta enim, eu tincidunt turpis nibh ut est. Curabitur tempus ullamcorper massa eu ornare. Nam nec nunc eget mi porta hendrerit. Integer risus nunc, dictum in pellentesque at, commodo id sapien. Morbi posuere eros metus, ut hendrerit est lobortis id. Fusce consectetur porta placerat. Etiam iaculis fermentum purus. In varius velit eu leo mollis varius. Integer lorem nibh, convallis ut venenatis sed, viverra sit amet ex. Cras aliquam nibh eget est volutpat consequat.
+
+                In fringilla mi porttitor ultricies bibendum. Phasellus varius non orci vitae pulvinar. Nullam lorem justo, feugiat sed elit sit amet, aliquam mollis lorem. In hac habitasse platea dictumst. Quisque vehicula libero at nunc aliquet mattis. Sed ut commodo diam. Quisque pretium pellentesque nunc tincidunt euismod. Quisque sollicitudin ac elit et consequat. Curabitur pulvinar libero ut nisl iaculis tincidunt. Curabitur id nibh vitae nisi porta facilisis vel ut nulla. Morbi a iaculis dolor. Maecenas et pellentesque diam. Fusce condimentum ullamcorper metus, id condimentum nisl scelerisque a.
+            </h4>
         </div>
+
 
 
         
@@ -512,7 +602,7 @@
             </div>
 
             <a href="#top" class="footer-logo">
-                <img src="MenoMale-Tondo-Logo.svg" alt="Logo MenoMale">
+                <img src="IMG/LOGO/Bandiera_Magenta_3.svg" alt="Logo MenoMale">
             </a>
 
             <div class="footer-right">
@@ -577,7 +667,4 @@
     </script>
 
 </body>
-
 </html>
-
-
