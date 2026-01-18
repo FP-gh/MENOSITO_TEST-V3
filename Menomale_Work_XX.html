@@ -1,0 +1,836 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Menomale Design</title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="IMG/LOGO/MenoMale-Tondo-Logo.svg" type="image/png">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        @font-face {
+            font-family: "Outfit_Regular";
+            src: url(Fonts/Outfit-Variable.ttf);
+            font-family: "Comico";
+            src:url(Fonts/Comico-Regular.ttf)
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: Outfit_Regular, sans-serif;
+            background-color: #1A2A40;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1; /* occuperà tutto lo spazio disponibile */
+        }
+
+        /* NAVBAR */
+        .navbar {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px;
+            background-color: #FFACC1 ;
+            padding-bottom: 25px ;
+        
+        }
+
+        .logo img {
+            height: 100px;
+            display: block;
+        }
+
+        .nav-links {
+            margin-left: auto;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #FF416E;
+            font-weight: 670;
+            font-size: 1.3rem;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: #E8E64A;
+        }
+
+        .nav-links_shadows {text-shadow: 0px 10px #1a2a4070, 0px 20px #1a2a4073, 0px 30px #1a2a409a;}
+
+        /* elemento di break (invisibile) */
+        .break {
+            display: none;
+        }
+
+        /* TABLET */
+        @media (max-width: 1024px) {
+            .logo img {
+                height: 80px;
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .logo img {
+                height: 70px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                max-width: 280px;
+                row-gap: 10px;
+            }
+
+            .break {
+                display: block;
+                flex-basis: 100%; /* forza il capo ESATTAMENTE qui */
+                height: 0;
+            }
+
+            .nav-links a {
+                text-align: right;
+                font-size: 0.95rem;
+            }
+
+            
+        }
+
+    /*SCRITTA SOTTO NAVBAR*/
+
+        .navbar-wrapper {
+        pointer-events: none;
+        width: 100%;
+        overflow: hidden;
+        background-color: #E8E64A;
+        }
+
+        .navbar-track {
+        display: flex;
+        width: max-content;
+        animation: scroll-navbar 20s linear infinite;
+        }
+
+        .text-navbar {
+        display: block;
+        font-size: 18px;
+        font-weight: 400;
+        font-family: "Comico";
+        color: #FF416E;
+        white-space: nowrap;
+        margin-right: 1vw;
+        }
+        
+
+        @media (max-width: 1024px) {
+        .text-navbar {
+            font-size: 13px;
+        }
+        }
+
+        
+
+        @keyframes scroll-navbar {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
+        }
+
+
+    /*BOX IMAGE SLIDER */
+
+        /* Spazio rispetto alla pagina */
+        .carousel-wrapper {
+            transform: translateY(1vw);
+            padding: 24px;
+            border: #1A2A40 solid inset 40px;
+            /* sposta verso il basso l’intero slider */
+        }
+
+        /* Contenitore principale */
+        .carousel {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: transparent;
+        }
+
+        /* Area mascherata (clipping immagini) */
+        .viewport {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            border-radius: 43px; /* deve combaciare con la cornice SVG */
+            z-index: 1;
+        }
+
+        /* Nastro slider */
+        .track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.6s ease;
+        }
+
+
+        /* LINK SLIDE */
+            .slide-link {
+                display: block;
+                height: 100%;
+                width: auto;
+            }
+
+            .slide-link picture {
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+
+            .slide-link img {
+                height: 100%;
+                width: auto;
+                object-fit: contain;
+            }
+
+            /* MOBILE */
+            @media (max-width: 600px) {
+                .slide-link {
+                    width: 100%;
+                }
+
+                .slide-link img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            
+        /* SLIDE IMMAGINI */
+        .slide picture {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .slide picture img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            .slide picture img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .slide {
+            height: 100%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .slide img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Cornice SVG sopra lo slider */
+        .frame-svg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .frame-mobile {display: none;
+        }
+
+        /* Aree cliccabili invisibili per le frecce */
+        .hit {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 80px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .hit-left {
+            left: 0;
+        }
+
+        .hit-right {
+            right: 0;
+        }
+
+        /* Desktop 1420px */
+        @media (max-width: 1420px) {
+        .viewport {
+            border-radius: 45px;
+        }
+        }
+
+        /* Desktop 1300px */
+        @media (max-width: 1420px) {
+        .viewport {
+            border-radius: 38px;
+        }
+        }
+
+        /* Desktop 1250px */
+        @media (max-width: 1250px) {
+        .viewport {
+            border-radius: 27px;
+        }
+        }
+
+        /* Desktop 1100px */
+        @media (max-width: 1100px) {
+        .viewport {
+            border-radius: 30px;
+        }
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+        .viewport {
+            border-radius: 20px;
+        }
+        }
+
+        /* Tablet Piccolo */
+        @media (max-width: 690px) {
+        .viewport {
+            border-radius: 20px;
+        }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+        .viewport {
+            border-radius: 40px;
+        }
+        .carousel-wrapper {
+            margin-top: 0px; /* sposta verso il basso l’intero slider */
+            padding: 16px;
+            border-width: 24px;
+        }
+        
+            .carousel {
+            aspect-ratio: 3 / 4;
+        }  
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        .frame-desktop {
+                display: none;
+            }
+
+        .frame-mobile {
+                display: block;
+            }
+
+        }
+
+
+        /* MARQUEE OVERLAY */
+        .marquee-overlay {
+            position: absolute;
+            left: 0;
+            bottom: 11.2%;
+            width: 100%;
+            overflow: hidden;
+            z-index: 15;
+            pointer-events: none;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee-group {
+            display: flex;
+            gap: clamp(24px, 4vw, 60px);
+            padding-right: clamp(24px, 4vw, 60px);
+        }
+
+        .marquee-group span {
+            font-family: Outfit_Regular, sans-serif;
+            font-size: clamp(0.75rem, 1.1vw, 1.15rem);
+            font-weight: 700;
+            color: #e8e64a;
+            letter-spacing: 0.12em;
+            white-space: nowrap;
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+        .marquee-group span {
+            font-size: clamp(0.5rem, 1.1vw, 1.15rem);
+        }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+        .marquee-group span {
+            font-size: clamp(0.8rem, 1.1vw, 1.15rem);
+        }
+
+        .marquee-overlay {
+            bottom: 17.3%;
+            
+        }
+        }
+
+        /* Animazione continua Marquee*/
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+
+        /*PARAGRAFO CENTRALE*/
+
+        .padding-par-centr {padding: 0; margin-left: 5vw; margin-right: 5vw; margin-top: 0.7%; margin-bottom: 4vw;}
+        .size-titolo1{font-size: xx-large;}
+
+        .two-columns {
+            column-count: 2;
+            column-gap: 4vw;
+            padding-top: 10px;
+            font-weight: 400;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .padding-par-centr{padding-left: 10px;padding-right: 10px;
+            }
+             .size-titolo1{font-size: x-large;}
+
+            .two-columns {column-count: 1;}
+        }
+
+        /* FOOTER */
+
+        footer {
+            background-color: #FFACC1;
+            color: #FF416E;
+            padding: 20px 5vw; /* padding laterale in % viewport per adattarsi */
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            column-gap: 2vw; /* spazio tra le colonne */
+            max-width: 100%;
+            overflow: hidden; /* impedisce overflow */
+        }
+
+        .footer-logo {
+            cursor: pointer;
+            justify-self: center;
+        }
+
+        .footer-logo img {
+            width: clamp(60px, 8vw, 90px);
+            display: block;
+        }
+
+        .footer-left,
+        .footer-right {
+            display: flex;
+            gap: 2vw; /* gap dinamico invece di fisso */
+            flex: 1;
+        }
+
+        .footer-right {
+            justify-content: flex-end;
+            padding-left: 0; /* rimosso padding fisso, ora gap gestisce spazio */
+        }
+
+        .footer-left {
+            justify-content: flex-start;
+            padding-right: 0; /* idem */
+        }
+
+        .footer-section h4 {
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: clamp(14px, 1.4vw, 16px);
+        }
+
+        .footer-section p {
+            margin: 0;
+            line-height: 1.4;
+            font-size: clamp(12px, 1.2vw, 14px);
+        }
+
+        /* Optional: ridurre gap su schermi molto stretti */
+        @media (max-width: 480px) {
+            .footer-left,
+            .footer-right {
+                gap: 1vw;
+            }
+        }
+
+        /*RIDUZIONE TESTO FOOTER*/
+        @media (max-width: 768px) {
+            .footer-section h4 {
+                font-size: clamp(12px, 2vw, 14px); /* titoli più piccoli */
+            }
+
+            .footer-section p {
+                font-size: clamp(10px, 1.5vw, 12px); /* paragrafi più piccoli */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-section h4 {
+                font-size: clamp(10px, 2.5vw, 12px);
+            }
+
+            .footer-section p {
+                font-size: clamp(8px, 2vw, 10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="IMG/LOGO/LOGO menomale design Rosa intenso+blu.png" alt="Logo">
+        </a>
+
+        <div class="nav-links">
+            <a href="Menomale_About.html">About</a>
+            <a style="color: #E8E64A;" href="Menomale_Works.html">Works</a>
+
+            <span class="break"></span>
+
+            <a href="Menomale_Exhibitions.html">Exhibitions</a>
+            <a href="Menomale_Contacts.html">Contacts</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <div class="navbar-wrapper">
+            <div class="navbar-track">
+                <!-- duplicazione necessaria per continuità -->
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+                <span class="text-navbar">WORKS</span>
+            </div>
+        </div>
+
+
+        <div class="carousel-wrapper">
+            <div class="carousel">
+
+                <div class="marquee-overlay">
+                    <div class="marquee-track">
+                        <div class="marquee-group">
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                        </div>
+
+                        <div class="marquee-group">
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                            <span>LATEST WORKS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Area mascherata -->
+                <div class="viewport">
+                
+                    <div class="track" id="track">
+                        <div class="slide">
+                                <picture>
+                                    <source 
+                                        srcset="EXHIBITIONS/NOC-IT/NOC-IT_FOTO/noc-it_foto_1_Mobile.jpg"
+                                        media="(max-width: 600px)">
+                                    <img 
+                                        src="EXHIBITIONS/NOC-IT/NOC-IT_FOTO/noc-it-foto-16a9_V2.jpg"
+                                        alt="">
+                                </picture>
+                        </div>
+                        <div class="slide">
+                                <picture>
+                                    <source 
+                                        srcset="EXHIBITIONS/NOC-IT/NOC-IT_FOTO/IMG_0774.jpeg"
+                                        media="(max-width: 600px)">
+                                    <img 
+                                        src="EXHIBITIONS/NOC-IT/NOC-IT_FOTO/IMG_0774.jpeg"
+                                        alt="">
+                                </picture>
+                        </div>
+                        <div class="slide">
+                                <picture>
+                                    <source 
+                                        srcset="EXHIBITIONS/NOC-IT/NOC-IT_FOTO/noc it foto 2.jpg"
+                                        media="(max-width: 600px)">
+                                    <img 
+                                        src="EXHIBITIONS/NOC-IT/NOC-IT_FOTO/noc it foto 2.jpg"
+                                        alt="">
+                                </picture>
+                        </div>
+                        <div class="slide"> 
+                                <picture>
+                                    <source 
+                                        srcset="EXHIBITIONS/NOC-IT/NOC-IT_FOTO/noc it foto 3.jpg"
+                                        media="(max-width: 600px)">
+                                    <img 
+                                        src="EXHIBITIONS/NOC-IT/NOC-IT_FOTO/noc it foto 3.jpg"
+                                        alt="">
+                                </picture>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cornice SVG -->
+                <img
+                src="IMG/CORNICE/Cornice_Blu_Freccie-Gialle_V2_16a9.svg"
+                class="frame-svg frame-desktop"
+                alt=""
+                aria-hidden="true">
+
+                <img
+                src="IMG/CORNICE/Cornice_Blu_Freccie-Gialle_V4_3a4.svg"
+                class="frame-svg frame-mobile"
+                style="border: #1A2A40 solid 8px outset;"
+                alt=""
+                aria-hidden="true">
+
+                <!-- Hit area frecce -->
+                <button class="hit hit-left" onclick="prev()"></button>
+                <button class="hit hit-right" onclick="next()"></button>
+
+            </div>
+        </div>
+
+        <!-- Paragrafo Centrale Home Page -->
+
+        <div class="padding-par-centr" style=" color:#FFACC1">
+            <h2 class="size-titolo1" style="font-weight: 800;">Titolo 1</h2>
+            <h4 class="two-columns" style="margin: 2px; padding-top: 10px; font-weight: 400;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae nisl quis sapien mattis porttitor non id ligula. Donec vitae ex nulla. Praesent dignissim in arcu rhoncus tincidunt. Vivamus et vestibulum odio, vitae viverra odio. Nam quis finibus eros. Fusce scelerisque tincidunt mauris, a varius massa dapibus sit amet. Sed lobortis rutrum convallis. Duis quis rhoncus nisl. Sed tristique rhoncus nisi, tempus varius augue elementum eget. Maecenas at tempus odio. Sed iaculis, tortor quis pellentesque lobortis, diam augue tempus leo, vel aliquet orci odio eget neque. Sed tincidunt libero eros, eu vestibulum massa gravida quis. Mauris sit amet tempor purus, at condimentum risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+
+                Donec id consectetur sem. Quisque ac faucibus libero. Phasellus tortor nisl, scelerisque pellentesque enim vel, pharetra consectetur lectus. Aliquam dignissim pellentesque ipsum, vel maximus lectus scelerisque sit amet. Vivamus sed nunc et justo pellentesque congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed porttitor diam vel aliquam tempus. Sed tincidunt euismod neque in tincidunt. Phasellus ex nulla, bibendum sed posuere eu, ultricies quis augue. Fusce venenatis gravida aliquam.
+
+                Quisque lectus elit, consequat vel ornare in, luctus a nunc. Mauris sed augue condimentum mi pretium molestie in at mauris. Integer volutpat pulvinar odio et fringilla. Nunc a pretium sapien. Duis fringilla et augue et feugiat. Curabitur a aliquam turpis. Nullam eu mauris porta, elementum purus sollicitudin, rhoncus odio. Nunc bibendum felis ut dui varius, sit amet facilisis justo venenatis. Mauris ultricies auctor ex a faucibus. Curabitur in interdum neque, non tincidunt mi. Nulla finibus luctus pharetra.
+
+                Aenean tincidunt sem a malesuada tincidunt. Pellentesque porta, magna vitae volutpat elementum, mauris enim porta enim, eu tincidunt turpis nibh ut est. Curabitur tempus ullamcorper massa eu ornare. Nam nec nunc eget mi porta hendrerit. Integer risus nunc, dictum in pellentesque at, commodo id sapien. Morbi posuere eros metus, ut hendrerit est lobortis id. Fusce consectetur porta placerat. Etiam iaculis fermentum purus. In varius velit eu leo mollis varius. Integer lorem nibh, convallis ut venenatis sed, viverra sit amet ex. Cras aliquam nibh eget est volutpat consequat.
+
+                In fringilla mi porttitor ultricies bibendum. Phasellus varius non orci vitae pulvinar. Nullam lorem justo, feugiat sed elit sit amet, aliquam mollis lorem. In hac habitasse platea dictumst. Quisque vehicula libero at nunc aliquet mattis. Sed ut commodo diam. Quisque pretium pellentesque nunc tincidunt euismod. Quisque sollicitudin ac elit et consequat. Curabitur pulvinar libero ut nisl iaculis tincidunt. Curabitur id nibh vitae nisi porta facilisis vel ut nulla. Morbi a iaculis dolor. Maecenas et pellentesque diam. Fusce condimentum ullamcorper metus, id condimentum nisl scelerisque a.
+            </h4>
+        </div>
+
+
+
+        
+    </main>
+
+    
+
+    <footer id="bottom">
+        <div class="footer-container">
+
+            <div class="footer-left">
+                <div class="footer-section">
+                    <h4>Titolo 1</h4>
+                    <p>Testo del primo paragrafo.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Titolo 2</h4>
+                    <p>Testo del secondo paragrafo.</p>
+                </div>
+            </div>
+
+            <a href="#top" class="footer-logo">
+                <img src="IMG/LOGO/Bandiera_Magenta_3.svg" alt="Logo MenoMale">
+            </a>
+
+            <div class="footer-right">
+                <div class="footer-section">
+                    <h4>Titolo 3</h4>
+                    <p>Testo del terzo paragrafo.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Titolo 4</h4>
+                    <p>Testo del quarto paragrafo.</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+    const track = document.getElementById("track");
+    const slides = document.querySelectorAll(".slide");
+    const viewport = document.querySelector(".viewport");
+
+    let index = 0;
+
+    function updatePosition() {
+        let offset = 0;
+
+        // somma larghezze precedenti
+        for (let i = 0; i < index; i++) {
+            offset += slides[i].offsetWidth;
+        }
+
+        const currentSlideWidth = slides[index].offsetWidth;
+        const viewportWidth = viewport.clientWidth;
+        const trackWidth = track.scrollWidth;
+
+        // se la slide corrente è più stretta del viewport
+        if (currentSlideWidth < viewportWidth) {
+            const maxOffset = trackWidth - viewportWidth;
+            offset = Math.min(offset, maxOffset);
+        }
+
+        track.style.transform = `translateX(-${offset}px)`;
+    }
+
+
+    function next() {
+        index++;
+        if (index >= slides.length) {
+        index = 0;
+        }
+        updatePosition();
+    }
+
+    function prev() {
+        index--;
+        if (index < 0) {
+        index = slides.length - 1;
+        }
+        updatePosition();
+    }
+    </script>
+
+</body>
+</html>
