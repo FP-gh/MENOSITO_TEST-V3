@@ -1,0 +1,111 @@
+/* ── NAVBAR ── */
+
+.navbar {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #FFACC1;
+    padding-bottom: 25px;
+}
+
+.logo img {
+    height: 100px;
+    display: block;
+}
+
+.nav-links {
+    margin-left: auto;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #FF416E;
+    font-weight: 670;
+    font-size: 1.3rem;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: #E8E64A;
+}
+
+.break {
+    display: none;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .logo img {
+        height: 80px;
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .logo img {
+        height: 78px;
+        margin-top: 5px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        max-width: 280px;
+        row-gap: 8px;
+    }
+
+    .break {
+        display: block;
+        flex-basis: 100%;
+        height: 0;
+    }
+
+    .nav-links a {
+        text-align: right;
+        font-size: 0.95rem;
+    }
+}
+
+
+/* ── SCRITTA SOTTO NAVBAR ── */
+
+.navbar-wrapper {
+    pointer-events: none;
+    width: 100%;
+    overflow: hidden;
+    background-color: #E8E64A;
+}
+
+.navbar-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-navbar 20s linear infinite;
+}
+
+.text-navbar {
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Comico";
+    color: #FF416E;
+    white-space: nowrap;
+    margin-right: 1vw;
+}
+
+@media (max-width: 1024px) {
+    .text-navbar {
+        font-size: 13px;
+    }
+}
+
+@keyframes scroll-navbar {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}

@@ -1,0 +1,85 @@
+/* ── BASE & FONT ── */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "Outfit_Regular";
+    src: url(../Fonts/Outfit-Variable.ttf);
+    font-family: "Comico";
+    src: url(../Fonts/Comico-Regular.ttf);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Outfit_Regular, sans-serif;
+    background-color: #1A2A40;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+
+/* ── ABOUT LAYOUT ── */
+
+.about-wrapper {
+    display: flex;
+    min-height: 60vh;
+    margin: 3vw;
+    gap: 3%;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+}
+
+.about-text {
+    margin-top: 2vw;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-right: 2vw;
+}
+
+.two-columns {
+    column-count: 2;
+    column-gap: 30px;
+    padding-top: 10px;
+    font-weight: 400;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .about-wrapper {
+        flex-direction: column;
+    }
+
+    .about-image {
+        width: 100%;
+        height: 60vh;
+    }
+
+    .two-columns {
+        column-count: 1;
+    }
+}

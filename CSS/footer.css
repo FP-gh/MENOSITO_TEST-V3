@@ -1,0 +1,88 @@
+/* ── FOOTER ── */
+
+footer {
+    background-color: #FFACC1;
+    color: #FF416E;
+    padding: 20px 5vw;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    column-gap: 2vw;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.footer-logo {
+    cursor: pointer;
+    justify-self: center;
+}
+
+.footer-logo img {
+    width: clamp(60px, 8vw, 90px);
+    display: block;
+}
+
+.footer-left,
+.footer-right {
+    display: flex;
+    gap: 12vw;
+    flex: 1;
+}
+
+.footer-right {
+    justify-content: flex-end;
+}
+
+.footer-left {
+    justify-content: flex-start;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: clamp(14px, 1.4vw, 16px);
+}
+
+.footer-section p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: clamp(12px, 1.2vw, 14px);
+}
+
+.footer-section a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Schermi molto stretti */
+@media (max-width: 480px) {
+    .footer-left,
+    .footer-right {
+        gap: 1vw;
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .footer-section h4 {
+        font-size: clamp(12px, 2vw, 14px);
+    }
+
+    .footer-section p {
+        font-size: clamp(10px, 1.5vw, 12px);
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .footer-section h4 {
+        font-size: clamp(10px, 2.5vw, 12px);
+    }
+
+    .footer-section p {
+        font-size: clamp(8px, 2vw, 10px);
+    }
+}

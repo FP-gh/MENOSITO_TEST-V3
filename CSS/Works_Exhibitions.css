@@ -1,0 +1,114 @@
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        @font-face {
+            font-family: "Outfit_Regular";
+            src: url(../Fonts/Outfit-Variable.ttf);
+            font-family: "Comico";
+            src:url(../Fonts/Comico-Regular.ttf)
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: Outfit_Regular, sans-serif;
+            background-color: #1A2A40;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1; /* occuperà tutto lo spazio disponibile */
+        }
+
+        /* GRID WORKS */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 80px; /* spazio tra le immagini */
+            padding: 40px 5vw;
+            margin-top: 0.9vw;
+        }
+
+        .work-item {
+            position: relative;
+            aspect-ratio: 3 / 4; /* formato verticale 3:4 */
+            overflow: hidden;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .work-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* OVERLAY */
+        .work-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(26, 42, 64, 0.6); /* #1A2A40 al 60% */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .work-overlay span {
+            font-family: Outfit_Regular, sans-serif;
+            font-weight: 650;
+            color: #e8e64a;
+            font-size: 1.4rem;
+            letter-spacing: 0.05em;
+        }
+
+        .work-link {
+            text-decoration: none;
+            display: block;
+        }
+
+        /* HOVER */
+        .work-item:hover .work-overlay {
+            opacity: 1;
+        }
+
+        /* RESPONSIVE: mantiene SEMPRE 3 colonne */
+        @media (max-width: 768px) {
+            .works-grid {
+                gap: 14px;
+                padding: 30px 4vw;
+            }
+
+            .work-overlay span {
+                font-size: 1.2rem;
+            }
+            .work-item {
+                border-radius: 40px;
+            }
+            
+        }
+
+        @media (max-width: 480px) {
+            .works-grid {
+                gap: 10px;
+                padding: 20px 3vw;
+            }
+
+            .work-overlay span {
+                font-size: 1rem;
+            }
+            .work-item {
+                border-radius: 20px;
+            }
+        }
+        

@@ -1,0 +1,76 @@
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        @font-face {
+            font-family: "Outfit_Regular";
+            src: url(../Fonts/Outfit-Variable.ttf);
+            font-family: "Comico";
+            src:url(../Fonts/Comico-Regular.ttf)
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: Outfit_Regular, sans-serif;
+            background-color: #1A2A40;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .centering {
+            flex: 1;
+            display: flex;
+            justify-content: center; /* centro orizzontale */
+            align-items: center;     /* centro verticale */
+        }
+
+        /*SEZIONE CENTRALE*/
+
+        
+        .padding-par-centr {
+            display: flex;
+            justify-content: center;
+            align-items: center; /* ← NON flex-start */
+            gap: 400px;
+            color: #FF416E;
+        }
+
+        .padding-par-centr > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; /* centra anche orizzontalmente il testo */
+            gap: 10px;
+        }
+
+        .size-titolo1{font-size: xx-large;}
+
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .padding-par-centr {
+                gap: 200px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .padding-par-centr {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+        }

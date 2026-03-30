@@ -1,0 +1,301 @@
+/* ── BASE & FONT ── */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "Outfit_Regular";
+    src: url(../Fonts/Outfit-Variable.ttf);
+    font-family: "Comico";
+    src: url(../Fonts/Comico-Regular.ttf);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Outfit_Regular, sans-serif;
+    background-color: #1A2A40;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+
+/* ── SCRITTA SEZIONE (marquee grande) ── */
+
+.wrapper {
+    pointer-events: none;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    transform: translateY(-10vw);
+}
+
+.sezione-track {
+    display: inline-block;
+    white-space: nowrap;
+    will-change: transform;
+    animation: scroll-sezione 50s linear infinite;
+}
+
+.text-sezione {
+    font-size: 30vw;
+    font-weight: 550;
+    color: #FF416E;
+    font-family: "Comico";
+}
+
+@media (max-width: 1024px) {
+    .wrapper {
+        transform: translateY(-8.5vw);
+    }
+}
+
+@keyframes scroll-sezione {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+
+/* ── CAROUSEL ── */
+
+.carousel-wrapper {
+    transform: translateY(-20vw);
+    padding: 24px;
+    border: #1A2A40 solid inset 40px;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: transparent;
+}
+
+.viewport {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: 43px;
+    z-index: 1;
+}
+
+.track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s ease;
+}
+
+/* Slide link */
+.slide-link {
+    display: block;
+    height: 100%;
+    width: auto;
+}
+
+.slide-link picture {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.slide-link img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Slide */
+.slide {
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.slide picture {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.slide picture img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.slide img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Cornice SVG */
+.frame-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.frame-mobile {
+    display: none;
+}
+
+/* Hit areas frecce */
+.hit {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 80px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.hit-left  { left: 0; }
+.hit-right { right: 0; }
+
+/* Responsive carousel — border-radius */
+@media (max-width: 1420px) { .viewport { border-radius: 45px; } }
+@media (max-width: 1420px) { .viewport { border-radius: 38px; } }
+@media (max-width: 1250px) { .viewport { border-radius: 27px; } }
+@media (max-width: 1100px) { .viewport { border-radius: 30px; } }
+@media (max-width: 1024px) { .viewport { border-radius: 20px; } }
+@media (max-width:  690px) { .viewport { border-radius: 20px; } }
+
+@media (max-width: 600px) {
+    .viewport { border-radius: 40px; }
+
+    .carousel-wrapper {
+        margin-top: 0px;
+        transform: translateY(-19vw);
+        padding: 16px;
+        border-width: 24px;
+    }
+
+    .carousel {
+        aspect-ratio: 3 / 4;
+    }
+
+    .slide img,
+    .slide-link img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .slide-link { width: 100%; }
+
+    .frame-desktop { display: none; }
+    .frame-mobile  { display: block; }
+}
+
+
+/* ── MARQUEE OVERLAY ── */
+
+.marquee-overlay {
+    position: absolute;
+    left: 0;
+    bottom: 11.2%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 15;
+    pointer-events: none;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 25s linear infinite;
+}
+
+.marquee-group {
+    display: flex;
+    gap: clamp(24px, 4vw, 60px);
+    padding-right: clamp(24px, 4vw, 60px);
+}
+
+.marquee-group span {
+    font-family: Outfit_Regular, sans-serif;
+    font-size: clamp(0.75rem, 1.1vw, 1.15rem);
+    font-weight: 700;
+    color: #e8e64a;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+    .marquee-group span {
+        font-size: clamp(0.5rem, 1.1vw, 1.15rem);
+    }
+}
+
+@media (max-width: 600px) {
+    .marquee-group span {
+        font-size: clamp(0.8rem, 1.1vw, 1.15rem);
+    }
+
+    .marquee-overlay {
+        bottom: 17.3%;
+    }
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+
+/* ── PARAGRAFO CENTRALE ── */
+
+.padding-par-centr {
+    padding: 0;
+    transform: translateY(-20vw);
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 0.7%;
+}
+
+.size-titolo1 {
+    font-size: xx-large;
+}
+
+.two-columns {
+    column-count: 2;
+    column-gap: 4vw;
+    padding-top: 10px;
+    font-weight: 400;
+}
+
+#testo-mobile { display: none; }
+
+@media (max-width: 600px) {
+    .padding-par-centr {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .size-titolo1 { font-size: x-large; }
+
+    .two-columns { column-count: 1; }
+
+    #testo-desktop { display: none; }
+    #testo-mobile  { display: block; }
+}
